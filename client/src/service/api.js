@@ -2,7 +2,7 @@ import axios from 'axios';
 import { API_NOTIFICATION_MESSAGE, SERVICE_URLs } from '../constants/config.js';
 import { getAccessToken, getType } from '../utils/common-utils.js';
 
-const API_URL = "http://localhost:8000";
+const API_URL = "/api";
 
 const axiosInstance = axios.create({
     baseURL : API_URL,
@@ -17,7 +17,7 @@ axiosInstance.interceptors.request.use(
         if (config.TYPE.params) {
             config.params = config.TYPE.params
         } else if (config.TYPE.query) {
-            config.url = config.url + '/' + config.TYPE.query;
+            config.url = config.url  +"/"+ config.TYPE.query;
         }
         return config;
     },
